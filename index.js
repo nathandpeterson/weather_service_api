@@ -27,6 +27,8 @@ app.get('/', (req, res) => res.send(
     }
 ))
 
+app.use('/api', require('./routes'))
+
 
 app.get('/api/increasingData', (req, res) => res.send(
     {
