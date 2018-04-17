@@ -22,12 +22,26 @@ app.get('/', (req, res) => res.send(
             flatData: {
                 name: 'Flat data values',
                 description: "Just the number 5"
-            }
+            },
+           currentTempForCity: {
+               name: 'Current temp',
+               description: 'Gives the current temp in fahrenheit'
+           },
+           currentHighForCity: {
+               name: 'High for a city',
+               description: 'Returns current high in fahrenheit for a city'
+           },
+           currentLowForCity: {
+            name: 'Low for a city',
+            description: 'Returns current low in fahrenheit for a city'
+            },
+           fiveDayForecast: {
+               name: 'Gives five day forecast',
+               description: 'Returns a five day forecast for a city'
+           }
         }
     }
 ))
-
-app.use('/api', require('./routes'))
 
 
 app.get('/api/increasingData', (req, res) => res.send(
@@ -55,6 +69,8 @@ app.get('/api/flatData', (req, res) => res.send(
         ]
     }
 ))
+
+app.use('/api', require('./routes'))
 
 app.use((req, res, next) => {
     const status = 404
